@@ -10,7 +10,7 @@
 #SBATCH --gres=gpu:1				 # Amount of GPUs
 
 module purge
-module load python/3.7.7
+module load gcc/8.4.0 gcc/8.4.0-cuda python/3.7.7 intel/19.0.5
 
 CUDA_VISIBLE_DEVICES="0" python3 -m openpifpaf.video_pose --batch-size 1 --jaad_batch_size 1 \
 --checkpoint outputs/resnet50block5-pif-paf-crm-edge401-190526-203030.pkl.epoch006 \
