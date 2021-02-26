@@ -9,7 +9,8 @@
 #SBATCH --time=00:05:00              # Time limit hrs:min:sec
 #SBATCH --gres=gpu:1				 # Amount of GPUs
 
-load module python3
+module purge
+module load python3
 
 CUDA_VISIBLE_DEVICES="0" python3 -m openpifpaf.video_pose --batch-size 1 --jaad_batch_size 1 \
 --checkpoint outputs/resnet50block5-pif-paf-crm-edge401-190526-203030.pkl.epoch006 \
