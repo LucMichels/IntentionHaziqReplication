@@ -71,11 +71,15 @@ class JAAD(torch.utils.data.Dataset):
 
         #### ADDED
         # transform format of the path to use the data in the cluster
+
+
+        # scene
         scenes_path_change = lambda x: str([change_path_format(path, ["work","vita","datasets","JAAD","images"], 5, "video_") for path in eval(x)])
         df["scenefolderpath"] = df["scenefolderpath"].apply(scenes_path_change)
 
-        images_path_change = lambda x: str([change_path_format(path, ["work","vita","datasets","JAAD","images"], 5, "video_") for path in eval(x)])
-        df["scenefolderpath"] = df["scenefolderpath"].apply(scenes_path_change)
+        # image
+        images_path_change = lambda x: str([change_path_format(path) for path in eval(x)])
+        df["imagefolderpath"] = df["imagefolderpath"].apply(images_path_change)
         #### ADDED
             
         # if input was passed as a single text file, then it means that it has already been processed
