@@ -17,11 +17,11 @@ from .data import COCO_PERSON_SKELETON
 from .network import nets
 from . import datasets, decoder, encoder, show, transforms
 
-ANNOTATIONS_VAL = '/work/vita/data-mscoco/annotations/person_keypoints_val2017.json'
-IMAGE_DIR_VAL = '/work/vita/data-mscoco/images/val2017/'
-ANNOTATIONS_TESTDEV = '/work/vita/data-mscoco/annotations/image_info_test-dev2017.json'
-ANNOTATIONS_TEST = '/work/vita/data-mscoco/annotations/image_info_test2017.json'
-IMAGE_DIR_TEST = '/work/vita/data-mscoco/images/test2017/'
+ANNOTATIONS_VAL = '/work/vita/data-coco/annotations/person_keypoints_val2017.json'
+IMAGE_DIR_VAL = '/work/vita/data-coco/images/val2017/'
+ANNOTATIONS_TESTDEV = '/work/vita/data-coco/annotations/image_info_test-dev2017.json'
+ANNOTATIONS_TEST = '/work/vita/data-coco/annotations/image_info_test2017.json'
+IMAGE_DIR_TEST = '/work/vita/data-coco/images/test2017/'
 
 # monkey patch for Python 3 compat
 pycocotools.coco.unicode = str

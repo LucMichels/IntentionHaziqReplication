@@ -14,10 +14,10 @@ import numpy as np
 from . import transforms, utils
 
 
-ANNOTATIONS_TRAIN = '/work/vita/data-mscoco/annotations/person_keypoints_train2017.json'
-ANNOTATIONS_VAL = '/work/vita/data-mscoco/annotations/person_keypoints_val2017.json'
-IMAGE_DIR_TRAIN = '/work/vita/data-mscoco/images/train2017/'
-IMAGE_DIR_VAL = '/work/vita/data-mscoco/images/val2017/'
+ANNOTATIONS_TRAIN = '/work/vita/data-coco/annotations/person_keypoints_train2017.json'
+ANNOTATIONS_VAL = '/work/vita/data-coco/annotations/person_keypoints_val2017.json'
+IMAGE_DIR_TRAIN = '/work/vita/data-coco/images/train2017/'
+IMAGE_DIR_VAL = '/work/vita/data-coco/images/val2017/'
 
 
 def collate_images_anns_meta(batch):
