@@ -73,7 +73,7 @@ class JAAD(torch.utils.data.Dataset):
         # transform format of the path to use the data in the cluster
 
         # add a 0 to image files
-        add_zero = lambda x: [ "0" + file for file in eval(x)]
+        add_zero = lambda x: str([ "0" + file for file in eval(x)])
         df["filename"] = df["filename"].apply(add_zero)
 
         # scene
