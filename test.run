@@ -13,4 +13,12 @@ pwd; hostname; date
 
 echo "Running evaluation tests on Haziq model"
 
+module purge
+module load gcc/8.4.0-cuda python/3.7.7
+source venvs/haziq/bin/activate
+srun ./paint_pose.sh
+deactivate
+
+echo "Success"
+
 date
