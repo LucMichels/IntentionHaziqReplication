@@ -54,6 +54,13 @@ def collate_images_targets_meta(batch):
 ############################# JAAD DATASET ####################################
 ###############################################################################
 ###############################################################################
+
+def change_path_format(path, added_prefix=[], remove_prefix=0, number_prefix=""):
+    """Changes path format so it can be used in the cluster"""
+    old_path = path.split("/")[remove_prefix:]
+    old_path[0] = number_prefix+old_path[0]
+    return "/" + "/".join(prefix + old_path)
+
 class JAAD(torch.utils.data.Dataset):
     def __init__(self, args, dtype):
         
@@ -61,10 +68,18 @@ class JAAD(torch.utils.data.Dataset):
         df = pd.DataFrame()
         for file in glob.glob(os.path.join(args.jaad_dataset,dtype,"*")):
             df = df.append(pd.read_csv(file), ignore_index=True) 
+
+
             
         # if input was passed as a single text file, then it means that it has already been processed
         # -------------------------------------------------------------------------------------------
         if("singletxt" in dtype):
+
+            #### ADDED
+            # transform format of the path to use the data in the cluster
+            func = lambda x: str([change_path_format(path, ["work","vita","datasets","JAAD","images"], 5, "video_") for path in eval(x)])
+            df["scenefolderpath"] = df["scenefolderpath"].apply(func)
+            #### ADDED
             for v in list(df.columns.values):
                 df.loc[:,v] = df.loc[:, v].apply(lambda x: literal_eval(x))
                 
