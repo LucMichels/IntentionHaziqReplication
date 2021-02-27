@@ -75,7 +75,7 @@ class JAAD(torch.utils.data.Dataset):
         # add a 0 to image files
         add_zero = lambda x: str([ "0" + file for file in eval(x)])
         df["filename"] = df["filename"].apply(add_zero)
-
+        print(df["filename"].get(0))
         # scene
         scenes_path_change = lambda x: str([change_path_format(path, ["work","vita","datasets","JAAD","images"], 5, "video_") for path in eval(x)])
         df["scenefolderpath"] = df["scenefolderpath"].apply(scenes_path_change)
