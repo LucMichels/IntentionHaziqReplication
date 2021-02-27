@@ -59,7 +59,7 @@ def change_path_format(path, added_prefix=[], remove_prefix=0, number_prefix="")
     """Changes path format so it can be used in the cluster"""
     old_path = path.split("/")[remove_prefix:]
     old_path[0] = number_prefix+old_path[0]
-    return "/" + "/".join(prefix + old_path)
+    return "/" + "/".join(added_prefix + old_path)
 
 class JAAD(torch.utils.data.Dataset):
     def __init__(self, args, dtype):
