@@ -1,0 +1,33 @@
+ssh -X michels@izar.epfl.ch
+
+git clone https://c4science.ch/diffusion/SCEXAMPLES/scitas-examples.git
+
+sbatch hello.run
+
+sbatch --partition=debug test.run
+
+sbatch --partition=debug test.run --gres=gpu:1 --time=00:05:00
+
+squeue -u michels
+
+scancel -u michels
+
+scp -r annotations michels@izar.epfl.ch:/path/to/remote/destination
+scp resnet50block5-pif-paf-crm-edge401-190525-002719.pkl.epoch006 michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/outputs
+scp resnet50block5-pif-paf-edge401.pkl michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/outputs
+
+scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/out_score.avi im
+
+
+scp -r annotations.zip michels@izar.epfl.ch:/home/michels
+
+mv /home/michels/annotations /home/michels/bar /home/jerry
+
+module load gcc/8.4.0-cuda python/3.7.7
+virtualenv --system-site-packages venvs/haziq
+source venvs/haziq/bin/activate
+pip install --no-cache-dir torch torchvision torchaudio
+pip install --no-cache-dir opencv-python
+pip install --no-cache-dir --editable '.[train,test]'
+
+deactivate
