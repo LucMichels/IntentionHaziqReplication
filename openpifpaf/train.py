@@ -98,13 +98,14 @@ def main():
     net_cpu, start_epoch = nets.factory_from_args(args)    
         
     #temp = models.alexnet(pretrained=False)  
-    temp = torch.load("./outputs/3d-resnet50.pkl")['model']
-    print(temp)
-    print(net_cpu)
-    print(net_cpu.base_net)
-    net_cpu.base_net = temp
-    print(net_cpu)
-    sys.exit(0)
+    # TODO: understand why this was here. This part seems to be used for no pretrained model training?
+    # temp = torch.load("./outputs/3d-resnet50.pkl")['model']
+    # print(temp)
+    # print(net_cpu)
+    # print(net_cpu.base_net)
+    # net_cpu.base_net = temp
+    # print(net_cpu)
+    # sys.exit(0)
         
     # load pretrained basenet and pifpaf headnet if i have not declared a checkpoint
     if(args.checkpoint is None):
