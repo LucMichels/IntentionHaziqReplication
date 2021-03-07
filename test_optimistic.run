@@ -1,12 +1,12 @@
 #!/bin/bash
-#SBATCH --job-name=test      # Job name
+#SBATCH --job-name=test_hazic_model_optimistic      # Job name
 #SBATCH --mail-type=ALL              # Mail events (NONE, BEGIN, END, FAIL, ALL)
 #SBATCH --mail-user=3gmichels@gmail.com    # Where to send mail	
 #SBATCH --nodes=1                    # Run all processes on a single node	
 #SBATCH --ntasks=1                   # Run a single task		
 #SBATCH --cpus-per-task=1            # Number of CPU cores per task
 #SBATCH --mem=25gb                    # Job memory request
-#SBATCH --time=00:15:00              # Time limit hrs:min:sec
+#SBATCH --time=08:00:00              # Time limit hrs:min:sec
 #SBATCH --gres=gpu:1				 # Amount of GPUs
 
 pwd; hostname; date
@@ -21,10 +21,71 @@ srun python3 -m openpifpaf.eval_optimistic --batch-size 1 --jaad_batch_size 1 \
 --checkpoint outputs/resnet50block5-pif-paf-crm-edge401-190525-002719.pkl.epoch006 \
 --truncate 0 \
 --final_frame_offset 0 \
---result "predict0s_truncated.txt" \
+--result "predict0s_truncated_opti.txt" \
 --jaad_train "/home/michels/annotations/singletxt_pre_train_0s_truncated" --jaad_val "/home/michels/annotations/singletxt_val_0s_truncated" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_0s_truncated"
 
+srun python3 -m openpifpaf.eval_optimistic --batch-size 1 --jaad_batch_size 1 \
+--checkpoint outputs/resnet50block5-pif-paf-crm-edge401-190525-002719.pkl.epoch006 \
+--truncate 0 \
+--final_frame_offset 0 \
+--result "predict1s_truncated_opti.txt" \
+--jaad_train "/home/michels/annotations/singletxt_pre_train_1s_truncated" --jaad_val "/home/michels/annotations/singletxt_val_1s_truncated" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_1s_truncated"
 
+srun python3 -m openpifpaf.eval_optimistic --batch-size 1 --jaad_batch_size 1 \
+--checkpoint outputs/resnet50block5-pif-paf-crm-edge401-190525-002719.pkl.epoch006 \
+--truncate 0 \
+--final_frame_offset 0 \
+--result "predict2s_truncated_opti.txt" \
+--jaad_train "/home/michels/annotations/singletxt_pre_train_2s_truncated" --jaad_val "/home/michels/annotations/singletxt_val_2s_truncated" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_2s_truncated"
+
+srun python3 -m openpifpaf.eval_optimistic --batch-size 1 --jaad_batch_size 1 \
+--checkpoint outputs/resnet50block5-pif-paf-crm-edge401-190525-002719.pkl.epoch006 \
+--truncate 0 \
+--final_frame_offset 0 \
+--result "predict3s_truncated_opti.txt" \
+--jaad_train "/home/michels/annotations/singletxt_pre_train_3s_truncated" --jaad_val "/home/michels/annotations/singletxt_val_3s_truncated" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_3s_truncated"
+
+srun python3 -m openpifpaf.eval_optimistic --batch-size 1 --jaad_batch_size 1 \
+--checkpoint outputs/resnet50block5-pif-paf-crm-edge401-190525-002719.pkl.epoch006 \
+--truncate 0 \
+--final_frame_offset 0 \
+--result "predict4s_truncated_opti.txt" \
+--jaad_train "/home/michels/annotations/singletxt_pre_train_4s_truncated" --jaad_val "/home/michels/annotations/singletxt_val_4s_truncated" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_4s_truncated"
+
+srun python3 -m openpifpaf.eval_optimistic --batch-size 1 --jaad_batch_size 1 \
+--checkpoint outputs/resnet50block5-pif-paf-crm-edge401-190525-002719.pkl.epoch006 \
+--truncate 0 \
+--final_frame_offset 0 \
+--result "predict0s_opti.txt" \
+--jaad_train "/home/michels/annotations/singletxt_pre_train_0s" --jaad_val "/home/michels/annotations/singletxt_val_0s" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_0s"
+
+srun python3 -m openpifpaf.eval_optimistic --batch-size 1 --jaad_batch_size 1 \
+--checkpoint outputs/resnet50block5-pif-paf-crm-edge401-190525-002719.pkl.epoch006 \
+--truncate 0 \
+--final_frame_offset 0 \
+--result "predict1s_opti.txt" \
+--jaad_train "/home/michels/annotations/singletxt_pre_train_1s" --jaad_val "/home/michels/annotations/singletxt_val_1s" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_1s"
+
+srun python3 -m openpifpaf.eval_optimistic --batch-size 1 --jaad_batch_size 1 \
+--checkpoint outputs/resnet50block5-pif-paf-crm-edge401-190525-002719.pkl.epoch006 \
+--truncate 0 \
+--final_frame_offset 0 \
+--result "predict2s_opti.txt" \
+--jaad_train "/home/michels/annotations/singletxt_pre_train_2s" --jaad_val "/home/michels/annotations/singletxt_val_2s" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_2s"
+
+srun python3 -m openpifpaf.eval_optimistic --batch-size 1 --jaad_batch_size 1 \
+--checkpoint outputs/resnet50block5-pif-paf-crm-edge401-190525-002719.pkl.epoch006 \
+--truncate 0 \
+--final_frame_offset 0 \
+--result "predict3s_opti.txt" \
+--jaad_train "/home/michels/annotations/singletxt_pre_train_3s" --jaad_val "/home/michels/annotations/singletxt_val_3s" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_3s"
+
+srun python3 -m openpifpaf.eval_optimistic --batch-size 1 --jaad_batch_size 1 \
+--checkpoint outputs/resnet50block5-pif-paf-crm-edge401-190525-002719.pkl.epoch006 \
+--truncate 0 \
+--final_frame_offset 0 \
+--result "predict4s_opti.txt" \
+--jaad_train "/home/michels/annotations/singletxt_pre_train_4s" --jaad_val "/home/michels/annotations/singletxt_val_4s" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_4s"
 
 deactivate
 
