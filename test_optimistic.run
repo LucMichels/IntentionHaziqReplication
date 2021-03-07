@@ -17,7 +17,7 @@ module purge
 module load gcc/8.4.0-cuda python/3.7.7
 source /home/michels/venvs/haziq/bin/activate
 
-srun python3 -m openpifpaf.eval --batch-size 1 --jaad_batch_size 1 \
+srun python3 -m openpifpaf.eval_optimistic --batch-size 1 --jaad_batch_size 1 \
 --checkpoint outputs/resnet50block5-pif-paf-crm-edge401-190525-002719.pkl.epoch006 \
 --truncate 0 \
 --final_frame_offset 0 \
