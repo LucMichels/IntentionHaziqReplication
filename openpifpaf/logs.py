@@ -136,8 +136,8 @@ class Plots(object):
     def epoch_head(self, ax, head_i):
     
         print(head_i)
-        #lambdas = [0, 30, 2, 2, 50, 3, 3, 0.2]
-        lambdas = [0, 0.2, 3, 3, 50, 2, 2, 30]
+        lambdas = [0, 30, 2, 2, 50, 3, 3, 0.2]
+        #lambdas = [0, 0.2, 3, 3, 50, 2, 2, 30]
     
         for data, label in zip(self.datas, self.labels):
             val_color = None
