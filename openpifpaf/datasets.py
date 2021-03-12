@@ -67,6 +67,7 @@ class JAAD(torch.utils.data.Dataset):
         # read annotations  
         df = pd.DataFrame()
         for file in glob.glob(os.path.join(args.jaad_dataset,dtype,"*")):
+            print(file)
             df = df.append(pd.read_csv(file), ignore_index=True) 
 
         # #### ADDED
