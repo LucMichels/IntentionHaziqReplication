@@ -68,9 +68,9 @@ class JAAD(torch.utils.data.Dataset):
         df = pd.DataFrame()
         for file in glob.glob(os.path.join(args.jaad_dataset,dtype,"*")):
             print("HERE ", file)
-            print("HERE ", file)
-            print("HERE ", file)
+
             df = df.append(pd.read_csv(file), ignore_index=True) 
+        print("DONE ", file)
 
         # #### ADDED
         # # transform format of the path to use the data in the cluster
