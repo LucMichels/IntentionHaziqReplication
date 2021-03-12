@@ -89,9 +89,9 @@ class JAAD(torch.utils.data.Dataset):
         # if input was passed as a single text file, then it means that it has already been processed
         # -------------------------------------------------------------------------------------------
         
-        #if("singletxt" in dtype): TODO reput
-        for v in list(df.columns.values):
-            df.loc[:,v] = df.loc[:, v].apply(lambda x: literal_eval(x))
+        if("singletxt" in dtype):
+            for v in list(df.columns.values):
+                df.loc[:,v] = df.loc[:, v].apply(lambda x: literal_eval(x))
                 
         # if input was not passed as a single text file, then we have to preprocess it
         # ---------------------------------------------------------------------------
