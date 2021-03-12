@@ -69,28 +69,29 @@ class JAAD(torch.utils.data.Dataset):
         for file in glob.glob(os.path.join(args.jaad_dataset,dtype,"*")):
             df = df.append(pd.read_csv(file), ignore_index=True) 
 
-        #### ADDED
-        # transform format of the path to use the data in the cluster
+        # #### ADDED
+        # # transform format of the path to use the data in the cluster
 
-        # start at zero instead of 1 and 5 sized numbers (ie: 0001.png to 00000.png)
-        format_name = lambda x: str([ f"{int(file[:-4]) - 1:05d}" + ".png" for file in eval(x)])
-        df["filename"] = df["filename"].apply(format_name)
-        print(df["filename"].get(0))
-        # scene
-        scenes_path_change = lambda x: str([change_path_format(path, ["work","vita","datasets","JAAD","images"], 5, "video_") for path in eval(x)])
-        df["scenefolderpath"] = df["scenefolderpath"].apply(scenes_path_change)
+        # # start at zero instead of 1 and 5 sized numbers (ie: 0001.png to 00000.png)
+        # format_name = lambda x: str([ f"{int(file[:-4]) - 1:05d}" + ".png" for file in eval(x)])
+        # df["filename"] = df["filename"].apply(format_name)
+        # print(df["filename"].get(0))
+        # # scene
+        # scenes_path_change = lambda x: str([change_path_format(path, ["work","vita","datasets","JAAD","images"], 5, "video_") for path in eval(x)])
+        # df["scenefolderpath"] = df["scenefolderpath"].apply(scenes_path_change)
 
 
-        # image
-        images_path_change = lambda x: str([change_path_format(path) for path in eval(x)])
-        df["imagefolderpath"] = df["imagefolderpath"].apply(images_path_change)
-        #### ADDED
+        # # image
+        # images_path_change = lambda x: str([change_path_format(path) for path in eval(x)])
+        # df["imagefolderpath"] = df["imagefolderpath"].apply(images_path_change)
+        # #### ADDED
             
         # if input was passed as a single text file, then it means that it has already been processed
         # -------------------------------------------------------------------------------------------
-        if("singletxt" in dtype):
-            for v in list(df.columns.values):
-                df.loc[:,v] = df.loc[:, v].apply(lambda x: literal_eval(x))
+        
+        #if("singletxt" in dtype): TODO reput
+        for v in list(df.columns.values):
+            df.loc[:,v] = df.loc[:, v].apply(lambda x: literal_eval(x))
                 
         # if input was not passed as a single text file, then we have to preprocess it
         # ---------------------------------------------------------------------------
