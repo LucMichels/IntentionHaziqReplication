@@ -32,7 +32,7 @@ srun python3 -m openpifpaf.train \
   --regression-loss=laplace \
   --lambdas 30 2 2 50 3 0.2 \
   --freeze-base=0 \
-  --jaad_train "/home/michels/annotations_luc/train_0s" --jaad_val "/home/michels/annotations/val_0s" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_4s"
+  --jaad_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_0s" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_0s" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_4s"
 
 deactivate
 
