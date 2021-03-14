@@ -21,8 +21,8 @@ srun python3 -m openpifpaf.eval --batch-size 1 --jaad_batch_size 1 \
 --checkpoint outputs/resnet50block5-pif-paf-crm-edge401-210310-021354.pkl.epoch006 \
 --truncate 0 \
 --final_frame_offset 0 \
---result "trained4s_luc_predict0s_luc_truncated.txt" \
---jaad_train "/home/michels/annotations/singletxt_pre_train_0s_truncated" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_0s_luc_truncated" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_0s_luc_truncated"
+--result "trained4s_luc_predict0s.txt" \
+--jaad_train "/home/michels/annotations/singletxt_pre_train_0s" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_0s_luc" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_0s_luc"
 
 
 deactivate
