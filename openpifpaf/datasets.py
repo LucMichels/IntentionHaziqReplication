@@ -67,7 +67,7 @@ class JAAD(torch.utils.data.Dataset):
         # read annotations  
         df = pd.DataFrame()
         for file in glob.glob(os.path.join(args.jaad_dataset,dtype,"*")):
-            if "luc" in dtype:
+            if "luc" not in dtype:
                 df = df.append(pd.read_csv(file), ignore_index=True) 
             else:
                 df = df.append(pd.read_pickle(file).reset_index(drop=True), ignore_index=True)
