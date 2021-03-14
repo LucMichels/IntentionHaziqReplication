@@ -73,7 +73,7 @@ class JAAD(torch.utils.data.Dataset):
         # # transform format of the path to use the data in the cluster
 
         # # start at zero instead of 1 and 5 sized numbers (ie: 0001.png to 00000.png)
-        if "luc" in dtype
+        if "luc" not in dtype:
             format_name = lambda x: str([ f"{int(file[:-4]) - 1:05d}" + ".png" for file in eval(x)])
             df["filename"] = df["filename"].apply(format_name)
             print(df["filename"].get(0))
