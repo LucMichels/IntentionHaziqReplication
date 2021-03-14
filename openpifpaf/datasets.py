@@ -70,7 +70,7 @@ class JAAD(torch.utils.data.Dataset):
             if "luc" not in dtype:
                 df = df.append(pd.read_csv(file), ignore_index=True) 
             else:
-                df = df.append(pd.read_pickle(file, protocol=4).reset_index(drop=True), ignore_index=True)
+                df = df.append(pd.read_pickle(file).reset_index(drop=True), ignore_index=True)
 
         # #### ADDED
         # # transform format of the path to use the data in the cluster
