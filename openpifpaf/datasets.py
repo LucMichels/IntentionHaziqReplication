@@ -85,6 +85,8 @@ class JAAD(torch.utils.data.Dataset):
             # image
             images_path_change = lambda x: str([change_path_format(path) for path in eval(x)])
             df["imagefolderpath"] = df["imagefolderpath"].apply(images_path_change)
+        else:
+            df = df.drop(columns=["frame","video"]) #TODO: remove
         # #### ADDED
             
         # if input was passed as a single text file, then it means that it has already been processed
