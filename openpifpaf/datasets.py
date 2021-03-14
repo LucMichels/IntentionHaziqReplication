@@ -67,7 +67,10 @@ class JAAD(torch.utils.data.Dataset):
         # read annotations  
         df = pd.DataFrame()
         for file in glob.glob(os.path.join(args.jaad_dataset,dtype,"*")):
-            df = df.append(pd.read_csv(file), ignore_index=True) 
+            if "luc" in dtype:
+                df = df.append(pd.read_csv(file), ignore_index=True) 
+            else:
+                df = df.append(pd.read_pickle(file).reset_index(drop=True), ignore_index=True)
 
         # #### ADDED
         # # transform format of the path to use the data in the cluster
