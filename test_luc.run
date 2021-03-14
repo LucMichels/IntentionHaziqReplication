@@ -22,7 +22,7 @@ srun python3 -m openpifpaf.eval --batch-size 1 --jaad_batch_size 1 \
 --truncate 0 \
 --final_frame_offset 0 \
 --result "test_luc.txt" \
---jaad_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_0s" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_0s" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_4s"
+--jaad_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_0s_luc" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_0s_luc" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_4s"
 
 
 deactivate
