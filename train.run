@@ -6,7 +6,7 @@
 #SBATCH --ntasks=1                   # Run a single task		
 #SBATCH --cpus-per-task=1            # Number of CPU cores per task
 #SBATCH --mem=25gb                    # Job memory request
-#SBATCH --time=24:00:00               # Time limit hrs:min:sec
+#SBATCH --time=00:05:00               # Time limit hrs:min:sec
 #SBATCH --gres=gpu:1				 # Amount of GPUs
 
 pwd; hostname; date
@@ -21,7 +21,7 @@ srun python3 -m openpifpaf.train \
   --pre-lr=1e-5 \
   --lr=1e-5 \
   --momentum=0.95 \
-  --epochs=7 \
+  --epochs=20 \
   --lr-decay 60 70 \
   --jaad_batch_size=4 \
   --batch-size=8 \
@@ -32,7 +32,7 @@ srun python3 -m openpifpaf.train \
   --regression-loss=laplace \
   --lambdas 30 2 2 50 3 0.2 \
   --freeze-base=0 \
-  --jaad_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_4s" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_4s" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_4s"
+  --jaad_train "/home/michels/annotations/singletxt_train_4s" --jaad_val "/home/michels/annotations/singletxt_val_4s" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_4s"
 
 deactivate
 
