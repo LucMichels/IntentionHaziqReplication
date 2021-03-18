@@ -8,7 +8,7 @@
 #SBATCH --mem=25gb                    # Job memory request
 #SBATCH --time=00:04:00              # Time limit hrs:min:sec
 #SBATCH --gres=gpu:1				 # Amount of GPUs
-#SBATCH --o=slurm_test_luc-%A_%a.out	# Output name
+#SBATCH --output=slurm_test_luc-%A_%a.out	# Output name
 
 
 pwd; hostname; date
