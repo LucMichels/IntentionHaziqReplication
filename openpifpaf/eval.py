@@ -104,7 +104,7 @@ def main():
     # do not ignore last
     _, _, _, \
     _, jaad_val_loader, _ = datasets.train_factory(args, preprocess=[], target_transforms=[], jaad_datasets=[args.jaad_train, args.jaad_val, args.jaad_pre_train])
-    
+    print(args.jaad_val)
     # loop through validation set        
     pred_lbls = []
     pred_ious = []
