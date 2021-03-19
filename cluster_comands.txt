@@ -16,12 +16,41 @@ scp -r annotations michels@izar.epfl.ch:/path/to/remote/destination
 scp resnet50block5-pif-paf-crm-edge401-190525-002719.pkl.epoch006 michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/outputs
 scp resnet50block5-pif-paf-edge401.pkl michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/outputs
 
-scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/out_score.avi im
 
 
-scp -r annotations.zip michels@izar.epfl.ch:/home/michels
+scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/outputs/resnet50block5-pif-paf-crm-edge401-210313-174401.pkl.log im
 
-mv /home/michels/annotations /home/michels/bar /home/jerry
+python -m openpifpaf.logs outputs/resnet50block5-pif-paf-crm-edge401-210306-050654.pkl.log 
+python -m openpifpaf.logs outputs/resnet50block5-pif-paf-crm-edge401-210313-174401.pkl.log
+
+
+
+
+scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/out_pose.avi im
+scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/out_crm.avi im
+scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/trained0s_predict0s_truncated.txt im
+scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/trained0s_predict1s_truncated.txt im
+scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/trained0s_predict2s_truncated.txt im
+scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/trained0s_predict3s_truncated.txt im
+scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/trained0s_predict4s_truncated.txt im
+scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/trained0s_predict0s.txt im
+scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/trained0s_predict1s.txt im
+scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/trained0s_predict2s.txt im
+scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/trained0s_predict3s.txt im
+scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/trained0s_predict4s.txt im
+scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/slurm-368633.out im
+
+scp -r michels@izar.epfl.ch:/work/vita/datasets/JAAD/images/video_0301/00000.png im
+
+scp  michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/trained4s* im
+
+
+scp -r annotations_luc.zip michels@izar.epfl.ch:/home/michels
+scp -r annotations_luc/singletxt_train_0s michels@izar.epfl.ch:/home/michels/annotations_luc
+scp -r annotations_luc/singletxt_test_0s michels@izar.epfl.ch:/home/michels/annotations_luc
+
+mv /home/michels/annotations/singletxt_train_0s /home/michels/bar /home/jerry
+mv /home/michels/annotations/singletxt_test_0s /home/michels/bar /home/jerry
 
 module load gcc/8.4.0-cuda python/3.7.7
 virtualenv --system-site-packages venvs/haziq
@@ -31,3 +60,24 @@ pip install --no-cache-dir opencv-python
 pip install --no-cache-dir --editable '.[train,test]'
 
 deactivate
+
+mv resnet50block5-pif-paf-edge401.pkl 3d-resnet50.pkl
+mv 3d-resnet50.pkl resnet50-pifpaf-trained.pkl
+
+
+
+
+
+#############
+ssh michels@iccluster139.iccluster.epfl.ch
+
+
+/ivrldata1/students/2021-spring-cs413-team7
+
+scp -r emotion_dataset.zip michels@iccluster139.iccluster.epfl.ch:/ivrldata1/students/2021-spring-cs413-team7
+
+mv *.zip raw_data
+
+gdown https://drive.google.com/drive/folders/17apMkeOc-uSTOIQlm7KIIzFf5dwLiXrZ?usp=sharing
+
+gdown https://drive.google.com/uc?id=1NziAyT0BTlB4tfAl4_9N4QMfm0_Z3Jz9
