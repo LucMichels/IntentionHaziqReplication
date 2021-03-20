@@ -65,7 +65,7 @@ mv resnet50block5-pif-paf-edge401.pkl 3d-resnet50.pkl
 mv 3d-resnet50.pkl resnet50-pifpaf-trained.pkl
 
 
-
+scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/slurm-* im
 
 
 #############
