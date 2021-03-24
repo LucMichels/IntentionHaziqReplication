@@ -1,0 +1,34 @@
+#!/bin/bash
+#SBATCH --job-name=test      # Job name
+#SBATCH --mail-type=ALL              # Mail events (NONE, BEGIN, END, FAIL, ALL)
+#SBATCH --mail-user=3gmichels@gmail.com    # Where to send mail	
+#SBATCH --nodes=1                    # Run all processes on a single node	
+#SBATCH --ntasks=1                   # Run a single task		
+#SBATCH --cpus-per-task=1            # Number of CPU cores per task
+#SBATCH --mem=25gb                    # Job memory request
+#SBATCH --time=10:00:00              # Time limit hrs:min:sec
+#SBATCH --gres=gpu:1				 # Amount of GPUs
+#SBATCH --output=slurm-luc_test_rest-%j.out	# Output name
+
+pwd; hostname; date
+
+
+module purge
+module load gcc/8.4.0-cuda python/3.7.7
+source /home/michels/venvs/haziq/bin/activate
+
+echo "Haziq - optimistic"
+
+echo "Haziq - average"
+
+echo "Mine - optimistic"
+
+echo "Mine - average"
+
+
+
+deactivate
+
+echo "Success_luc"
+
+date

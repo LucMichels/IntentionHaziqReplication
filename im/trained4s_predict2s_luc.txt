@@ -1,1 +1,0 @@
-pred_lbl,pred_iou,pred_box_x1,pred_box_y1,pred_box_x2,pred_box_y2,true_lbl,true_box_x1,true_box_y1,true_box_x2,true_box_y2,path_to_scene,pedestrian,frames
