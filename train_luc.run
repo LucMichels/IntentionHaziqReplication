@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=train_luc      # Job name
+#SBATCH --job-name=train_luc_inf      # Job name
 #SBATCH --mail-type=ALL              # Mail events (NONE, BEGIN, END, FAIL, ALL)
 #SBATCH --mail-user=3gmichels@gmail.com    # Where to send mail	
 #SBATCH --nodes=1                    # Run all processes on a single node	
@@ -21,7 +21,7 @@ srun python3 -m openpifpaf.train \
   --pre-lr=1e-5 \
   --lr=1e-5 \
   --momentum=0.95 \
-  --epochs=7 \
+  --epochs=6 \
   --lr-decay 60 70 \
   --jaad_batch_size=4 \
   --batch-size=8 \
@@ -30,9 +30,9 @@ srun python3 -m openpifpaf.train \
   --headnets pif paf crm \
   --square-edge=401 \
   --regression-loss=laplace \
-  --lambdas 30 2 2 50 3 0.2 \
+  --lambdas 30 2 2 50 3 3 \
   --freeze-base=0 \
-  --jaad_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_4s_luc" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_4s_luc" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_4s"
+  --jaad_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_infinitys_luc" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_infinitys_luc" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_4s"
 
 deactivate
 
