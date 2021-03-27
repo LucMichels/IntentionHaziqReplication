@@ -427,9 +427,9 @@ def main():
     if args.output is None:
         args.output = args.log_file[-1] + '.'
 
-    #EvalPlots(args.log_file, args.label, args.output,
-    #          edge=args.eval_edge,
-    #          samples=args.eval_samples).show_all(share_y=args.share_y)
+    EvalPlots(args.log_file, args.label, args.output,
+              edge=args.eval_edge,
+              samples=args.eval_samples).show_all(share_y=args.share_y)
     Plots(args.log_file, args.label, args.output).show_all(
         args.n_heads, share_y=args.share_y)
 
