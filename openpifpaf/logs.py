@@ -273,6 +273,7 @@ class Plots(object):
         for data, label in zip(self.datas, self.labels):
             with open(label+'data.json', 'w') as fp:
                 json.dump(data, fp)
+                print("done ", fp.name)
 
     def show_all(self, n_heads=5, *, share_y=True):
         pprint(self.process_arguments())
