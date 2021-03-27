@@ -8,6 +8,7 @@ from pprint import pprint
 
 import numpy as np
 import pysparkling
+import pandas as pd
 
 from . import show
 
@@ -266,8 +267,12 @@ class Plots(object):
         for data, label in zip(self.datas, self.labels):
             if 'train' in data:
                 print('{}: {}'.format(label, data['train'][-1]))
+
+    def save_to_json(self):
+
         for data, label in zip(self.datas, self.labels):
-            print(data.keys())
+            with open(label+'data.json', 'w') as fp:
+                json.dump(data, fp)
 
     def show_all(self, n_heads=5, *, share_y=True):
         pprint(self.process_arguments())
@@ -299,6 +304,7 @@ class Plots(object):
             self.train(ax)
 
         self.print_last_line()
+        self.save_to_json()
 
 
 class EvalPlots(object):
