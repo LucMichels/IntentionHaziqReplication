@@ -262,9 +262,12 @@ class Plots(object):
         # ax.legend()
 
     def print_last_line(self):
+
         for data, label in zip(self.datas, self.labels):
             if 'train' in data:
                 print('{}: {}'.format(label, data['train'][-1]))
+        for data, label in zip(self.datas, self.labels):
+            print(data.keys())
 
     def show_all(self, n_heads=5, *, share_y=True):
         pprint(self.process_arguments())
