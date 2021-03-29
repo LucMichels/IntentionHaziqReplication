@@ -104,7 +104,7 @@ class Trainer(object):
             data2 = data2.to(self.device, non_blocking=True)
             targets2 = [[t.to(self.device, non_blocking=True) for t in head] for head in targets2]
 
-        if(1):
+        if(0):
             outputs1 = self.model(data1, head="pifpaf")               
             loss1, head_losses1 = self.loss(outputs1, targets1, head="pifpaf")  
             if loss1 is not None:
@@ -135,7 +135,7 @@ class Trainer(object):
             loss = loss3 + loss2
             head_losses = head_losses3 + head_losses2      
         
-        if(0):
+        if(1):
             outputs1 = self.model(data1, head="pifpaf")               
             outputs2 = self.model(data2, head="crm")
             loss1, head_losses1 = self.loss(outputs1, targets1, head="pifpaf")

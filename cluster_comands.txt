@@ -66,6 +66,9 @@ mv 3d-resnet50.pkl resnet50-pifpaf-trained.pkl
 
 
 scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/trained4s_* im
+scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/outputs/resnet50block5-pif-paf-crm-edge401-210325-174538.pkl.logdata.json im
+scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/slurm-408274.out im
+
 
 
 #############
