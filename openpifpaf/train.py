@@ -156,6 +156,7 @@ def main():
         encoder_visualizer = encoder.Visualizer(args.headnets, net_cpu.io_scales())
 
     if args.freeze_base:
+        print("Haha I was freezing all along")
         # freeze base net parameters
         frozen_params = set()
         for n, p in net.named_parameters():
