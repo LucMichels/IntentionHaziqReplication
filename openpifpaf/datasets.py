@@ -556,9 +556,8 @@ def train_factory(args, preprocess, target_transforms, jaad_datasets):
         target_transforms=target_transforms,
         n_images=args.n_images,
     )
-    if (0):
-        coco_train_data = torch.utils.data.ConcatDataset(
-            [coco_train_data for _ in range(2)])
+    # duplicate coco train bevause coco is smaller than JAAD
+    coco_train_data = torch.utils.data.ConcatDataset([coco_train_data for _ in range(2)])
     coco_train_loader = torch.utils.data.DataLoader(
         coco_train_data, batch_size=args.batch_size, shuffle=not args.debug,
         pin_memory=args.pin_memory, num_workers=args.loader_workers, drop_last=True,

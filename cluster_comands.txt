@@ -64,9 +64,10 @@ deactivate
 mv resnet50block5-pif-paf-edge401.pkl 3d-resnet50.pkl
 mv 3d-resnet50.pkl resnet50-pifpaf-trained.pkl
 
+python3 -m openpifpaf.logs outputs/resnet50block5-pif-paf-crm-edge401-210330-195213.pkl.log
 
 scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/trained4s_* im
-scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/outputs/resnet50block5-pif-paf-crm-edge401-210329-125626.pkl.logdata.json im
+scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/outputs/resnet50block5-pif-paf-crm-edge401-210330-195213.pkl.logdata.json im
 scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/slurm-408274.out im
 
 diff IntentionHaziqReplication/openpifpaf/transforms.py openpifpaf/openpifpaf/transforms.py
