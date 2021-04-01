@@ -1,14 +1,14 @@
 #!/bin/bash
-#SBATCH --job-name=train_4s      # Job name
+#SBATCH --job-name=train_4s_COCO_x2      # Job name
 #SBATCH --mail-type=ALL              # Mail events (NONE, BEGIN, END, FAIL, ALL)
 #SBATCH --mail-user=3gmichels@gmail.com    # Where to send mail	
 #SBATCH --nodes=1                    # Run all processes on a single node	
 #SBATCH --ntasks=1                   # Run a single task		
 #SBATCH --cpus-per-task=1            # Number of CPU cores per task
 #SBATCH --mem=25gb                    # Job memory request
-#SBATCH --time=00:15:00               # Time limit hrs:min:sec
+#SBATCH --time=20:15:00               # Time limit hrs:min:sec
 #SBATCH --gres=gpu:1				 # Amount of GPUs
-#SBATCH --output=slurm-hazik_train-%j.out  # Output name
+#SBATCH --output=slurm-hazik_train_COCO_x2-%j.out  # Output name
 
 pwd; hostname; date
 
