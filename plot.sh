@@ -1,5 +1,13 @@
-python3 -m openpifpaf.logs \
-outputs/old-crm-pifpaf.pkl.log
+
+module purge
+module load gcc/8.4.0-cuda python/3.7.7
+source /home/michels/venvs/haziq/bin/activate
+
+python3 -m openpifpaf.logs "$1"
+
+deactivate
+
+#python3 -m openpifpaf.logs outputs/old-crm-pifpaf.pkl.log
 #outputs/resnet50block5-pif-paf-crm-edge401-190526-203030.pkl.log
 #outputs/resnet50block5-pif-paf-crm-edge401-190525-002719.pkl.log # new
 #outputs/resnet50block5-pif-paf-crm-edge401-190523-203605.pkl.log # old
