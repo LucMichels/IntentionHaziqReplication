@@ -10,6 +10,7 @@ from ast import literal_eval
 import torchvision.transforms.functional as TF
 import cv2
 import numpy as np
+import PIL
 
 from . import transforms, utils
 
