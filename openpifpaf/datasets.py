@@ -324,6 +324,7 @@ def tr_transforms(scene, crop):
 
     # transform scene
     # resize to the "standard resolution" before cropping
+    print("JAAD", type(scene))
     scene = TF.resize(scene, size=(height,width))
     scene = TF.to_tensor(scene) 
     scene = TF.normalize(scene, mean=(0.485, 0.456, 0.406),std=(0.229, 0.224, 0.225))

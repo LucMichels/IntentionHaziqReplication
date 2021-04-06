@@ -370,6 +370,7 @@ class HFlip(Preprocess):
             return image, anns, meta
 
         w, _ = image.size
+        print("COCO", type(image))
         image = image.transpose(PIL.Image.FLIP_LEFT_RIGHT)
         for ann in anns:
             ann['keypoints'][:, 0] = -ann['keypoints'][:, 0] - 1.0 + w
