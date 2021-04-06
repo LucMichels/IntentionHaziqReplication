@@ -319,7 +319,7 @@ def tr_transforms(scene, crop, rand=1):
     # resize to the "standard resolution" before cropping
     scene = TF.resize(scene, size=(height,width))
     if rand < 0.5:
-        scene = [image.transpose(PIL.Image.FLIP_LEFT_RIGHT) for image in scene]
+        scene = scene.transpose(PIL.Image.FLIP_LEFT_RIGHT)
     scene = TF.to_tensor(scene) 
     scene = TF.normalize(scene, mean=(0.485, 0.456, 0.406),std=(0.229, 0.224, 0.225))
     
