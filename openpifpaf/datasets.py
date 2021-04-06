@@ -241,19 +241,12 @@ class JAAD(torch.utils.data.Dataset):
         # load scene
         scenename = os.path.join(df["scenefolderpath"][-1], df["filename"][-1])
         scene = Image.open(scenename)
-        scene = self.transform(scene, self.args.crop)
+        rand = np.random.rand()
+        scene = self.transform(scene, self.args.crop, rand)
 
-        if np.random.rand() < 0.5: #randomly flip horizontally returns a view so it is constant time
+        if rand < 0.5: #randomly flip horizontally returns a view so it is constant time
             box_x = scene_w - (np.asarray(box_x) + box_w + 1) # +1 because box width is not true width but x2 - x1 I will leave that as Hazik did but I need to fix it here with the +1
             box_x = box_x.tolist()
-            print()
-            print(type(scene))
-            print(scene.shape)
-            print()
-            for image in scene:
-                print(np.asarray(image).shape)
-            #scene = [image.transpose(PIL.Image.FLIP_LEFT_RIGHT) for image in scene]
-
                 
         # build activity map
         activity_map, loss_mask = build_activity_map(scene_h, scene_w, self.args.activity_h, self.args.activity_w, box_x, box_y, box_w, box_h, crossing, self.args) 
@@ -317,15 +310,16 @@ def build_activity_map(scene_h, scene_w, activity_h, activity_w, box_x, box_y, b
 
 # -------------------------------
 # transforms for the training set
-def tr_transforms(scene, crop):
+def tr_transforms(scene, crop, rand=1):
 
     width = 960
     height = 540
 
     # transform scene
     # resize to the "standard resolution" before cropping
-    print("JAAD", type(scene))
     scene = TF.resize(scene, size=(height,width))
+    if rand < 0.5:
+        scene = [image.transpose(PIL.Image.FLIP_LEFT_RIGHT) for image in scene]
     scene = TF.to_tensor(scene) 
     scene = TF.normalize(scene, mean=(0.485, 0.456, 0.406),std=(0.229, 0.224, 0.225))
     
