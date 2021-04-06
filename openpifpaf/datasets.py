@@ -235,6 +235,21 @@ class JAAD(torch.utils.data.Dataset):
         scenepaths = df["scenefolderpath"]
         filenames  = df["filename"]
         
+
+                        
+        # load scene
+        scenename = os.path.join(df["scenefolderpath"][-1], df["filename"][-1])
+        scene = Image.open(scenename)
+        scene = self.transform(scene, self.args.crop)
+
+        if np.random.rand() < 0.5: #randomly flip horizontally returns a view so it is constant time
+            box_x = scene_w - (box_x + box_w + 1) # +1 because box width is not true width but x2 - x1 I will leave that as Hazik did but I need to fix it here with the +1
+            scene = scene.transpose(PIL.Image.FLIP_LEFT_RIGHT)
+                
+        # build activity map
+        activity_map, loss_mask = build_activity_map(scene_h, scene_w, self.args.activity_h, self.args.activity_w, box_x, box_y, box_w, box_h, crossing, self.args) 
+        activity_map = [[activity_map]] # cheap fix to make the format similar to pifpaf
+
         meta = {
             'dataset_index': index,
             'path_to_scene': os.path.join(df["scenefolderpath"][-1], df["filename"][-1]),
@@ -246,17 +261,9 @@ class JAAD(torch.utils.data.Dataset):
             'box_w': (np.array(box_w)/scale).astype(int),
             'box_h': (np.array(box_h)/scale).astype(int)
         }
-                        
-        # load scene
-        scenename = os.path.join(df["scenefolderpath"][-1], df["filename"][-1])
-        scene = Image.open(scenename)
-        scene = self.transform(scene, self.args.crop)
-                
-        # build activity map
-        activity_map, loss_mask = build_activity_map(scene_h, scene_w, self.args.activity_h, self.args.activity_w, box_x, box_y, box_w, box_h, crossing, self.args) 
-        activity_map = [[activity_map]] # cheap fix to make the format similar to pifpaf
                 
         return scene, activity_map, meta
+
 
 def build_activity_map(scene_h, scene_w, activity_h, activity_w, box_x, box_y, box_w, box_h, crossing, args):
 
