@@ -243,7 +243,7 @@ class JAAD(torch.utils.data.Dataset):
         scene = self.transform(scene, self.args.crop)
 
         if np.random.rand() < 0.5: #randomly flip horizontally returns a view so it is constant time
-            box_x = scene_w - (box_x + box_w + 1) # +1 because box width is not true width but x2 - x1 I will leave that as Hazik did but I need to fix it here with the +1
+            box_x = [scene_w]*len(box_x) - (box_x + box_w + [1]*len(box_x)) # +1 because box width is not true width but x2 - x1 I will leave that as Hazik did but I need to fix it here with the +1
             scene = scene.transpose(PIL.Image.FLIP_LEFT_RIGHT)
                 
         # build activity map
