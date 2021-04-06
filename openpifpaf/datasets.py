@@ -252,7 +252,7 @@ class JAAD(torch.utils.data.Dataset):
             print()
             for image in scene:
                 print(np.asarray(image).shape)
-            scene = [image.transpose(PIL.Image.FLIP_LEFT_RIGHT) for image in scene]
+            #scene = [image.transpose(PIL.Image.FLIP_LEFT_RIGHT) for image in scene]
 
                 
         # build activity map
