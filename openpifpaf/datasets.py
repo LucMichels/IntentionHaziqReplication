@@ -244,7 +244,7 @@ class JAAD(torch.utils.data.Dataset):
         rand = np.random.rand()
         scene = self.transform(scene, self.args.crop, rand)
 
-        if rand < 0.5: #randomly flip horizontally returns a view so it is constant time
+        if rand < 0.5: #randomly flip horizontally
             box_x = scene_w - (np.asarray(box_x) + box_w + 1) # +1 because box width is not true width but x2 - x1 I will leave that as Hazik did but I need to fix it here with the +1
             box_x = box_x.tolist()
                 
