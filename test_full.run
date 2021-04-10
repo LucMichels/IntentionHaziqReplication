@@ -19,35 +19,35 @@ module load gcc/8.4.0-cuda python/3.7.7
 source /home/michels/venvs/haziq/bin/activate
 
 srun python3 -m openpifpaf.eval --batch-size 1 --jaad_batch_size 1 \
---checkpoint outputs/resnet50block5-pif-paf-crm-edge401-210406-113617.pkl.epoch003 \
+--checkpoint outputs/resnet50block5-pif-paf-crm-edge401-210406-113617.pkl.epoch002 \
 --truncate 0 \
 --final_frame_offset 0 \
 --result "trained0s_predict0s_hflip.txt" \
 --jaad_train "/home/michels/annotations/singletxt_train_0s" --jaad_val "/home/michels/annotations/singletxt_val_0s" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_0s"
 
 srun python3 -m openpifpaf.eval --batch-size 1 --jaad_batch_size 1 \
---checkpoint outputs/resnet50block5-pif-paf-crm-edge401-210406-113617.pkl.epoch003 \
+--checkpoint outputs/resnet50block5-pif-paf-crm-edge401-210406-113617.pkl.epoch002 \
 --truncate 0 \
 --final_frame_offset 0 \
 --result "trained0s_predict1s_hflip.txt" \
 --jaad_train "/home/michels/annotations/singletxt_train_1s" --jaad_val "/home/michels/annotations/singletxt_val_1s" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_1s"
 
 srun python3 -m openpifpaf.eval --batch-size 1 --jaad_batch_size 1 \
---checkpoint outputs/resnet50block5-pif-paf-crm-edge401-210406-113617.pkl.epoch003 \
+--checkpoint outputs/resnet50block5-pif-paf-crm-edge401-210406-113617.pkl.epoch002 \
 --truncate 0 \
 --final_frame_offset 0 \
 --result "trained0s_predict2s_hflip.txt" \
 --jaad_train "/home/michels/annotations/singletxt_train_2s" --jaad_val "/home/michels/annotations/singletxt_val_2s" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_2s"
 
 srun python3 -m openpifpaf.eval --batch-size 1 --jaad_batch_size 1 \
---checkpoint outputs/resnet50block5-pif-paf-crm-edge401-210406-113617.pkl.epoch003 \
+--checkpoint outputs/resnet50block5-pif-paf-crm-edge401-210406-113617.pkl.epoch002 \
 --truncate 0 \
 --final_frame_offset 0 \
 --result "trained0s_predict3s_hflip.txt" \
 --jaad_train "/home/michels/annotations/singletxt_train_3s" --jaad_val "/home/michels/annotations/singletxt_val_3s" --jaad_pre_train "/home/michels/annotations/singletxt_pre_train_3s"
 
 srun python3 -m openpifpaf.eval --batch-size 1 --jaad_batch_size 1 \
---checkpoint outputs/resnet50block5-pif-paf-crm-edge401-210406-113617.pkl.epoch003 \
+--checkpoint outputs/resnet50block5-pif-paf-crm-edge401-210406-113617.pkl.epoch002 \
 --truncate 0 \
 --final_frame_offset 0 \
 --result "trained0s_predict4s_hflip.txt" \
