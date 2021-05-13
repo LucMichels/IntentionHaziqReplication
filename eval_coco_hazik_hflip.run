@@ -19,14 +19,19 @@ module load gcc/8.4.0-cuda python/3.7.7
 source /home/michels/venvs/haziq/bin/activate
 
 srun python3 -m openpifpaf.eval_coco \
-  --checkpoint outputs/resnet50block5-pif-paf-crm-edge401-210406-113617.pkl.epoch005 \
+  --checkpoint outputs/resnet50-pifpaf-trained.pkl \
   --long-edge=321 \
   --loader-workers=1
 
-srun python3 -m openpifpaf.eval_coco \
-  --checkpoint outputs/resnet50block5-pif-paf-crm-edge401-190525-002719.pkl.epoch006 \
-  --long-edge=321 \
-  --loader-workers=1
+#srun python3 -m openpifpaf.eval_coco \
+#  --checkpoint outputs/resnet50block5-pif-paf-crm-edge401-210406-113617.pkl.epoch005 \
+#  --long-edge=321 \
+#  --loader-workers=1
+
+#srun python3 -m openpifpaf.eval_coco \
+#  --checkpoint outputs/resnet50block5-pif-paf-crm-edge401-190525-002719.pkl.epoch006 \
+#  --long-edge=321 \
+#  --loader-workers=1
 
 deactivate
 
