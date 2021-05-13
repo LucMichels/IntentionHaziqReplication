@@ -70,16 +70,28 @@ scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/trained0s_* 
 scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/outputs/resnet50block5-pif-paf-crm-edge401-210406-113617.pkl.logdata.json im
 scp -r michels@izar.epfl.ch:/home/michels/IntentionHaziqReplication/slurm-408274.out im
 
+scp -r michels@izar.epfl.ch:/home/michels/results/taylor/multiple_datasets_eval/predictions/*.json multiple_datasets_eval
+
 diff IntentionHaziqReplication/openpifpaf/transforms.py openpifpaf/openpifpaf/transforms.py
 
 python3 -m openpifpaf.logs outputs/resnet50block5-pif-paf-crm-edge401-210402-022211.pkl.epoch004
 
+/home/michels/results/taylor/all_train/logs/train_log.txt
+
+cp -R /home/michels/results/taylor/multiple_datasets/checkpoints /home/michels/results/taylor/multiple_datasets_eval
+
+python3 -m openpifpaf.logs ../results/taylor/all_train/logs/train_log.txt
 
 #############
 ssh michels@iccluster139.iccluster.epfl.ch
 
 
-/ivrldata1/students/2021-spring-cs413-team7
+cd /ivrldata1/students/2021-spring-cs413-team7
+umask 002
+source /ivrldata1/students/2021-spring-cs413-team7/anaconda/anaconda3/bin/activate
+conda activate basic
+python clusterTest.py
+
 
 scp -r emotion_dataset.zip michels@iccluster139.iccluster.epfl.ch:/ivrldata1/students/2021-spring-cs413-team7
 
@@ -88,3 +100,5 @@ mv *.zip raw_data
 gdown https://drive.google.com/drive/folders/17apMkeOc-uSTOIQlm7KIIzFf5dwLiXrZ?usp=sharing
 
 gdown https://drive.google.com/uc?id=1NziAyT0BTlB4tfAl4_9N4QMfm0_Z3Jz9
+
+umask 002

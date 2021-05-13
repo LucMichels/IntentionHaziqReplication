@@ -1,0 +1,35 @@
+#!/bin/bash -l
+
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=6
+#SBATCH --mem=16384
+#SBATCH --partition=gpu
+#SBATCH --qos=gpu
+#SBATCH --gres=gpu:1
+#SBATCH --time=00:00:30
+#SBATCH --output=/home/michels/results/testing_hazik.out
+
+pwd; hostname; date
+
+echo "Running pose estimation using Haziq's model"
+
+module purge
+module load gcc/8.4.0-cuda python/3.7.7
+source /home/michels/venvs/haziq/bin/activate
+
+srun python3 -m openpifpaf.eval_coco \
+  --checkpoint outputs/resnet50block5-pif-paf-crm-edge401-210406-113617.pkl.epoch005 \
+  --long-edge=321 \
+  --loader-workers=1
+
+srun python3 -m openpifpaf.eval_coco \
+  --checkpoint outputs/resnet50block5-pif-paf-crm-edge401-190525-002719.pkl.epoch006 \
+  --long-edge=321 \
+  --loader-workers=1
+
+deactivate
+
+echo "Success"
+
+date
