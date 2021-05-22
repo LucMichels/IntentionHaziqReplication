@@ -23,35 +23,35 @@ srun python3 -m openpifpaf.eval --batch-size 1 --jaad_batch_size 1 \
 --truncate 0 \
 --final_frame_offset 0 \
 --result "trained0s_predict0s_truncated_hflip_luc.txt" \
---jaad_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_0s_luc_truncated" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_0s_luc_truncated" --jaad_pre_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_pre_train_0s_luc_truncated"
+--jaad_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_0s_luc_truncated" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_0s_luc_truncated" --jaad_pre_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_0s_luc_truncated"
 
 srun python3 -m openpifpaf.eval --batch-size 1 --jaad_batch_size 1 \
 --checkpoint outputs/resnet50block5-pif-paf-crm-edge401-210406-113617.pkl.epoch002 \
 --truncate 0 \
 --final_frame_offset 0 \
 --result "trained0s_predict1s_truncated_hflip_luc.txt" \
---jaad_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_1s_luc_truncated" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_1s_luc_truncated" --jaad_pre_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_pre_train_1s_luc_truncated"
+--jaad_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_1s_luc_truncated" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_1s_luc_truncated" --jaad_pre_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_1s_luc_truncated"
 
 srun python3 -m openpifpaf.eval --batch-size 1 --jaad_batch_size 1 \
 --checkpoint outputs/resnet50block5-pif-paf-crm-edge401-210406-113617.pkl.epoch002 \
 --truncate 0 \
 --final_frame_offset 0 \
 --result "trained0s_predict2s_truncated_hflip_luc.txt" \
---jaad_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_2s_luc_truncated" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_2s_luc_truncated" --jaad_pre_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_pre_train_2s_luc_truncated"
+--jaad_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_2s_luc_truncated" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_2s_luc_truncated" --jaad_pre_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_2s_luc_truncated"
 
 srun python3 -m openpifpaf.eval --batch-size 1 --jaad_batch_size 1 \
 --checkpoint outputs/resnet50block5-pif-paf-crm-edge401-210406-113617.pkl.epoch002 \
 --truncate 0 \
 --final_frame_offset 0 \
 --result "trained0s_predict3s_truncated_hflip_luc.txt" \
---jaad_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_3s_luc_truncated" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_3s_luc_truncated" --jaad_pre_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_pre_train_3s_luc_truncated"
+--jaad_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_3s_luc_truncated" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_3s_luc_truncated" --jaad_pre_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_3s_luc_truncated"
 
 srun python3 -m openpifpaf.eval --batch-size 1 --jaad_batch_size 1 \
 --checkpoint outputs/resnet50block5-pif-paf-crm-edge401-210406-113617.pkl.epoch002 \
 --truncate 0 \
 --final_frame_offset 0 \
 --result "trained0s_predict4s_truncated_hflip_luc.txt" \
---jaad_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_4s_luc_truncated" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_4s_luc_truncated" --jaad_pre_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_pre_train_4s_luc_truncated"
+--jaad_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_4s_luc_truncated" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_4s_luc_truncated" --jaad_pre_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_4s_luc_truncated"
 
 
 
