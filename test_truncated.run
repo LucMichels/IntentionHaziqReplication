@@ -6,7 +6,7 @@
 #SBATCH --ntasks=1                   # Run a single task		
 #SBATCH --cpus-per-task=1            # Number of CPU cores per task
 #SBATCH --mem=30gb                   # Job memory request
-#SBATCH --time=00:02:30              # Time limit hrs:min:sec 4
+#SBATCH --time=04:00:00              # Time limit hrs:min:sec 4
 #SBATCH --gres=gpu:1				 # Amount of GPUs
 #SBATCH --output=slurm-full_hazik_eval_COCO_x2_HFlip-%j.out  # Output name
 
