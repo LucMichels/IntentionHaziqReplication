@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=test_trunc      # Job name
+#SBATCH --job-name=test_snip     # Job name
 #SBATCH --mail-type=ALL              # Mail events (NONE, BEGIN, END, FAIL, ALL)
 #SBATCH --mail-user=3gmichels@gmail.com    # Where to send mail	
 #SBATCH --nodes=1                    # Run all processes on a single node	
