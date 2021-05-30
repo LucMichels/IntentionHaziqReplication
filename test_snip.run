@@ -26,21 +26,21 @@ srun python3 -m openpifpaf.eval --batch-size 1 --jaad_batch_size 1 \
 --checkpoint outputs/resnet50block5-pif-paf-crm-edge401-${model}.pkl.epoch00${epoch_nb} \
 --truncate 0 \
 --final_frame_offset 0 \
---result "trained0s_predict1s_snip_base_luc.txt" \
+--result "trained0s_predict1s_snip_hflip_luc.txt" \
 --jaad_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_1s_snip_luc" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_1s_snip_luc" --jaad_pre_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_1s_snip_luc"
 
 srun python3 -m openpifpaf.eval --batch-size 1 --jaad_batch_size 1 \
 --checkpoint outputs/resnet50block5-pif-paf-crm-edge401-${model}.pkl.epoch00${epoch_nb} \
 --truncate 0 \
 --final_frame_offset 0 \
---result "trained0s_predict2s_snip_base_luc.txt" \
+--result "trained0s_predict2s_snip_hflip_luc.txt" \
 --jaad_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_2s_snip_luc" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_2s_snip_luc" --jaad_pre_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_2s_snip_luc"
 
 srun python3 -m openpifpaf.eval --batch-size 1 --jaad_batch_size 1 \
 --checkpoint outputs/resnet50block5-pif-paf-crm-edge401-${model}.pkl.epoch00${epoch_nb} \
 --truncate 0 \
 --final_frame_offset 0 \
---result "trained0s_predict3s_snip_base_luc.txt" \
+--result "trained0s_predict3s_snip_hflip_luc.txt" \
 --jaad_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_3s_snip_luc" --jaad_val "/home/michels/IntentionHaziqReplication/luc_data/singletxt_val_3s_snip_luc" --jaad_pre_train "/home/michels/IntentionHaziqReplication/luc_data/singletxt_train_3s_snip_luc"
 
 
