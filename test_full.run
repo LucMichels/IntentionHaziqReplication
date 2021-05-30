@@ -6,7 +6,7 @@
 #SBATCH --ntasks=1                   # Run a single task		
 #SBATCH --cpus-per-task=1            # Number of CPU cores per task
 #SBATCH --mem=30gb                   # Job memory request
-#SBATCH --time=00:02:30              # Time limit hrs:min:sec 8:0:0
+#SBATCH --time=08:00:00              # Time limit hrs:min:sec 8:0:0
 #SBATCH --gres=gpu:1				 # Amount of GPUs
 #SBATCH --output=slurm-full_hazik_eval_base-%j.out  # Output name
 
