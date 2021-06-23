@@ -1,4 +1,11 @@
-Readme not complete
+# Pedestrian-Intention-Prediction Fixed by Luc Michels
+
+In this repository we have fixed Haziq’s code such that it is usable. 
+
+In order to use the code you would still require the same annotations Haziq has used. We also provide a way to download and format the annotations such that they are usable by Haziq’s code. To achieve this you need to place read_annotations_df.ipynb in the cloned JAAD github from here: https://github.com/ykotseruba/JAAD then run the jupyter notebook.
+
+The rest of the README is the original README from Haziq Razali. To be able to use the fix provided in this repository one requires to do the same setup done in the setup section below.
+
 
 # Pedestrian-Intention-Prediction
 
